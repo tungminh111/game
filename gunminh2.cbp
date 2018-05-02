@@ -11,6 +11,7 @@
 				<Option object_output="obj/Debug/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
+				<Option use_console_runner="0" />
 				<Compiler>
 					<Add option="-g" />
 				</Compiler>
@@ -30,18 +31,23 @@
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
-			<Add directory="../../i686-w64-mingw32/include/SDL2" />
-			<Add directory="../../i686-w64-mingw32x/include/SDL2" />
-			<Add directory="../../New folder (2)/i686-w64-mingw32/include/SDL2" />
+			<Add directory="../../CodeBlocks/SDL2/include/SDL2" />
 		</Compiler>
 		<Linker>
 			<Add option="-lmingw32 -lSDL2main -lSDL2" />
 			<Add option="-lSDL2_image" />
 			<Add option="-lSDL2_ttf" />
-			<Add directory="../../i686-w64-mingw32/lib" />
-			<Add directory="../../i686-w64-mingw32x/lib" />
-			<Add directory="../../New folder (2)/i686-w64-mingw32/lib" />
+			<Add directory="../../CodeBlocks/SDL2/lib" />
 		</Linker>
+		<Unit filename="Block.cpp" />
+		<Unit filename="Bullet.cpp" />
+		<Unit filename="BulletControl.cpp" />
+		<Unit filename="BulletManager.cpp" />
+		<Unit filename="Enemy.cpp" />
+		<Unit filename="Hero.cpp" />
+		<Unit filename="LButton.cpp" />
+		<Unit filename="LTexture.cpp" />
+		<Unit filename="TimeManager.cpp" />
 		<Unit filename="declaration.cpp" />
 		<Unit filename="header.h" />
 		<Unit filename="main.cpp" />

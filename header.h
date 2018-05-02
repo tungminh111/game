@@ -150,6 +150,27 @@ private:
     LTexture mTexture;
 };
 
+class TimeManager {
+public:
+    static void setData(int _time);
+    static void updateData();
+    static void displayTime();
+private:
+    static int baseTime;
+    static int time;
+    static TTF_Font* gFont;
+};
+
+class BulletManager {
+public:
+    static void setData(int _time);
+    static void updateData();
+    static void displayBullet();
+private:
+    static int bullet;
+    static TTF_Font* gFont;
+};
+
 extern SDL_Window* gWindow;
 extern SDL_Surface* gScreenSurface;
 extern SDL_Renderer* gRenderer;
