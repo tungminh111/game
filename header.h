@@ -15,7 +15,8 @@ bool loadMediaSDL(std::string c);
 void closeSDL();
 class Enermy;
 class Hero;
-
+class Block;
+bool collised(SDL_Rect rect1,SDL_Rect rect2);
 enum LButtonSprite
 {
     BUTTON_SPRITE_MOUSE_OUT = 0,
@@ -78,6 +79,7 @@ public:
     void addBullet(int x,int y,DIRECTION dir);
     void operate();
     void scan(Enermy &enermy);
+    void scan(Block &block);
 private:
     std::vector<Bullet> bulletList;
 
@@ -109,6 +111,7 @@ public:
     void die();
     void operate();
     void checkCollision(Bullet &bullet);
+    void loadTex(std::string c);
 private:
     int x1,x2,y,mWidth,mHeight;
     int currentMotion;
@@ -117,7 +120,7 @@ private:
     bool died;
     int hp;
     ENERMYTYPE type;
-    LTexture body;
+    LTexture body[4];
     SDL_Rect canInjure[TOTAL_DIR];
 };
 
@@ -135,7 +138,17 @@ private:
     int ButtonWidth,ButtonHeight;
 };
 
-
+class Block {
+public:
+    void loadTex(std::string s);
+    void render();
+    void setBlock(int x,int y,int w,int h);
+    SDL_Rect getRect();
+    void checkbul(Bullet&bullet);
+private:
+    SDL_Rect display;
+    LTexture mTexture;
+};
 
 extern SDL_Window* gWindow;
 extern SDL_Surface* gScreenSurface;

@@ -1,8 +1,8 @@
 # depslib dependency file v1.0
-1525109432 source:c:\users\msi\desktop\gunminh2\gunminh2\main.cpp
+1525278894 source:c:\users\msi\desktop\gunminh2\gunminh2\main.cpp
 	"header.h"
 
-1525111130 c:\users\msi\desktop\gunminh2\gunminh2\header.h
+1525278949 c:\users\msi\desktop\gunminh2\gunminh2\header.h
 	<SDL.h>
 	<iostream>
 	<SDL_image.h>
@@ -345,7 +345,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1525150705 source:c:\users\msi\desktop\gunminh2\gunminh2\declaration.cpp
+1525278258 source:c:\users\msi\desktop\gunminh2\gunminh2\declaration.cpp
 	"header.h"
 
 1519932851 c:\users\msi\desktop\i686-w64-mingw32\include\sdl2\sdl_image.h

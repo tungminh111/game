@@ -6,6 +6,14 @@ extern SDL_Renderer* gRenderer;
 extern LTexture gTexture;
 extern int SDLScreenWidth;
 extern int SDLScreenHeight;
+bool collised(SDL_Rect rect1,SDL_Rect rect2) {
+    int x1=std::max(rect1.x,rect2.x);
+    int x2=std::min(rect1.x+rect1.w-1,rect2.x+rect2.w-1);
+    int y1=std::max(rect1.y,rect2.y);
+    int y2=std::min(rect1.y+rect1.h-1,rect2.y+rect2.h-1);
+    if (x1>x2||y1>y2) return false;
+    return true;
+}
 
 
 LButton::LButton(){
@@ -74,7 +82,7 @@ void LButton::render() {
 }
 
 Hero::Hero() {
-    pos={50,50};
+    pos={0,370};
     direction=RIGHT;
     velX=velY=0;
     velY=16;
@@ -121,7 +129,7 @@ void Hero::operate(BulletControl &bulletScreen) {
             bulletScreen.addBullet(pos.x-20,pos.y+41,direction);
         fire=false;
     }
-
+    SDL_Point past=pos;
     bool st=true;
     if (velX>0) {
         if (direction==RIGHT) {
@@ -154,6 +162,7 @@ void Hero::operate(BulletControl &bulletScreen) {
         }
         if (currentHeight==canJump) jumping=false;
     }
+
     if (direction==LEFT) body[currentMotion].render(pos.x,pos.y,SDL_FLIP_HORIZONTAL); else body[currentMotion].render(pos.x,pos.y);
 }
 
@@ -169,6 +178,7 @@ void Enermy::setLoop(int posX,int posY,int _x1,int _x2,int _y) {
     mWidth=mHeight=0;
     canInjure[RIGHT]={16,8,20,112};
     canInjure[LEFT]={77,8,20,112};
+    died=false;
 }
 
 void Enermy::operate() {
@@ -177,7 +187,7 @@ void Enermy::operate() {
         if (pos.x<=x1)
             direction=RIGHT,currentMotion=0;
         else {
-            pos.x-=5;
+            pos.x-=3;
             currentMotion++;
             currentMotion%=4;
         }
@@ -185,37 +195,39 @@ void Enermy::operate() {
         if (pos.x+mWidth-1>=x2)
             direction=LEFT,currentMotion=0;
         else {
-            pos.x+=5;
+            pos.x+=3;
             currentMotion++;
             currentMotion%=4;
         }
     }
-    std::string s;
-    s.push_back(char('0'+currentMotion));
-    body.loadTex(("art/gunenermy"+s+".png").c_str());
     if (direction==LEFT)
-        body.render(pos.x,pos.y,SDL_FLIP_HORIZONTAL);
+        body[currentMotion].render(pos.x,pos.y,SDL_FLIP_HORIZONTAL);
     else
-        body.render(pos.x,pos.y,SDL_FLIP_NONE);
+        body[currentMotion].render(pos.x,pos.y,SDL_FLIP_NONE);
 }
 
 void Enermy::checkCollision(Bullet &bullet) {
     if (died) return;
-    int x0=std::max(bullet.pos.x,pos.x+canInjure[direction].x);
-    int x1=std::min(pos.x+canInjure[direction].x+canInjure[direction].w-1,bullet.pos.x+bullet.width-1);
-    int y0=std::max(bullet.pos.y,pos.y+canInjure[direction].y);
-    int y1=std::min(pos.y+canInjure[direction].y+canInjure[direction].h-1,bullet.pos.y+bullet.height-1);
-    if (x0>x1||y0>y1) return;
+    SDL_Rect rect1={bullet.pos.x,bullet.pos.y,bullet.width,bullet.height};
+    SDL_Rect rect2={pos.x+canInjure[direction].x,pos.y+canInjure[direction].y,canInjure[direction].w,canInjure[direction].h};
+    if (!collised(rect1,rect2)) return;
     die();
     bullet.Collision();
 }
 
 void Enermy::die() {
     died=true;
-    body.loadTex("art/die.png");
-    body.render(pos.x,pos.y);
+    body[0].loadTex("art/die.png");
+    body[0].render(pos.x,pos.y);
 }
 
+void Enermy::loadTex(std::string c) {
+    For(i,0,3) {
+        std::string s=c;
+        s.push_back(char('0'+i));
+        body[i].loadTex(s+".png");
+    }
+}
 ///////////////////LTEXTURE///////////////////////////////////////
 
 LTexture::LTexture()
@@ -306,6 +318,10 @@ void BulletControl::scan(Enermy &enermy) {
     For(i,0,(int)bulletList.size()-1) enermy.checkCollision(bulletList[i]);
 }
 
+void BulletControl::scan(Block &block) {
+    For(i,0,(int)bulletList.size()-1) block.checkbul(bulletList[i]);
+}
+
 bool initSDL(){
     bool success=true;
     if (SDL_Init(SDL_INIT_VIDEO<0)) {
@@ -332,6 +348,29 @@ bool initSDL(){
         }
     }
     return success;
+}
+
+////////////////////////////////////// BLOCK ////////////////////////
+
+void Block::loadTex(std::string s) {
+    mTexture.loadTex(s.c_str());
+}
+
+SDL_Rect Block::getRect() {return display;}
+
+void Block::setBlock(int x,int y,int w,int h) {
+    display={x,y,w,h};
+}
+
+void Block::render() {
+    mTexture.render(display.x,display.y);
+}
+
+void Block::checkbul(Bullet &bullet) {
+    SDL_Rect rect1={bullet.pos.x,bullet.pos.y,bullet.width,bullet.height};
+    SDL_Rect rect2=display;
+    if (!collised(rect1,rect2)) return;
+    bullet.Collision();
 }
 
 bool loadMediaSDL(std::string c) {

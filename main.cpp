@@ -5,7 +5,7 @@ SDL_Surface* gScreenSurface=NULL;
 SDL_Renderer* gRenderer=NULL;
 LTexture gTexture;
 int SDLScreenWidth=1000;
-int SDLScreenHeight=486;
+int SDLScreenHeight=581;
 
 int main(int argc, char* args[]) {
     bool quit=false;
@@ -30,36 +30,56 @@ int main(int argc, char* args[]) {
     button[TUTORIAL].setPosition(702,346,167,89);
     while (!quit) {
         while (SDL_PollEvent(&e)!=0) {
-            if (e.type==SDL_QUIT) {quit=true;}
+            if (e.type==SDL_QUIT||e.type==SDL_MOUSEBUTTONDOWN) {quit=true;}
             For(i,0,TOTAL_BUTTON-1) button[i].handleEvent(&e);
         }
         For(i,0,TOTAL_BUTTON-1) button[i].render();
         SDL_RenderPresent(gRenderer);
-        break;
     }
 
-    ////////////////////////////////////////////////////
-    SDL_RenderClear(gRenderer);
+    /////////////////////////////////////// gameplay
+    quit=false;
     Hero minh;
     BulletControl bulletScreen;
+    Enermy loc[2];
     minh.loadTex("art/hero");
-    SDL_Point heroPos={0,0};
-    int cur=0;
-    Enermy loc;
-    loc.setLoop(200,50,200,300,50);
+    For(i,0,1) loc[i].loadTex("art/gunenermy");
+    gTexture.loadTex("art/stage1.png");
+    Block block[8];
+    block[0].loadTex("art/flyinglane.png");
+    block[0].setBlock(312,346,249,54);
+    block[1].loadTex("art/box.png");
+    block[1].setBlock(476,261,85,86);
+    block[2].loadTex("art/lane1.png");
+    block[2].setBlock(0,488,541,93);
+    block[3].loadTex("art/lane2.png");
+    block[3].setBlock(538,539,462,42);
+    block[4].loadTex("art/box.png");
+    block[4].setBlock(680,146,85,86);
+    block[5].loadTex("art/box.png");
+    block[5].setBlock(765,146,85,86);
+    block[6].loadTex("art/box.png");
+    block[6].setBlock(765,60,85,86);
+    block[7].loadTex("art/flyinglane2.png");
+    block[7].setBlock(624,231,373,101);
+    loc[0].setLoop(0,370,100,200,470);
     while (!quit) {
         while (SDL_PollEvent(&e)!=0) {
             if (e.type==SDL_QUIT) {quit=true;}
             minh.handleEvent(e);
         }
         SDL_RenderClear(gRenderer);
+        gTexture.render(0,0);
+        For(i,0,7) {
+            bulletScreen.scan(block[i]);
+            block[i].render();
+        }
         minh.operate(bulletScreen);
+        bulletScreen.scan(loc[0]);
         bulletScreen.operate();
-        bulletScreen.scan(loc);
-        loc.operate();
+        loc[0].operate();
         SDL_RenderPresent(gRenderer);
         SDL_Delay(50);
-
     }
 
 
