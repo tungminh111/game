@@ -31,8 +31,9 @@ void Stage1::load() {
     loc[1].setLoop(360,255,300,460,255);
     loc[2].setLoop(600,450,600,800,450);
     Door::loadTex("art/door.png");
-    TimeManager::setData(50); //add
-    BulletManager::setData(10); //add
+    TimeManager::setData(50);
+    BulletManager::setData(10);
+    HealthManager::setData(3);
     while (!quit) {
         while (SDL_PollEvent(&e)!=0) {
             if (e.type==SDL_QUIT) {quit=true;}
@@ -49,11 +50,11 @@ void Stage1::load() {
         For(i,0,2) BulletControl::scan(loc[i]);
         BulletControl::operate();
         For(i,0,2) loc[i].operate();
-        TimeManager::updateData(); //add
-        TimeManager::displayTime(); //add
+        TimeManager::updateData();
+        TimeManager::displayTime();
 
-        BulletManager::displayBullet(); //add
-
+        BulletManager::displayBullet();
+        HealthManager::displayHealth();
         BulletControl::reload();
         SDL_RenderPresent(gRenderer);
         SDL_Delay(40);
