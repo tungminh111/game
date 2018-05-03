@@ -172,6 +172,16 @@ private:
     static TTF_Font* gFont;
 };
 
+class HealthManager {
+public:
+    static void setData(int _maxHealth);
+    static void updateHealth(int change);
+    static void displayHealth();
+private:
+    static int health;
+    static int maxHealth;
+};
+
 extern SDL_Window* gWindow;
 extern SDL_Surface* gScreenSurface;
 extern SDL_Renderer* gRenderer;

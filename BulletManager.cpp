@@ -17,7 +17,7 @@ int BulletManager::get(){ return bullet;}
 void BulletManager::displayBullet() {
     //draw icon
     SDL_Rect dstRect;
-    dstRect.x = 120;
+    dstRect.x = 300;
     dstRect.y = 20;
     dstRect.w = 30;
     dstRect.h = 30;

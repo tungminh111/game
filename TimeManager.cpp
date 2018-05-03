@@ -18,7 +18,7 @@ void TimeManager::updateData() {
 void TimeManager::displayTime() {
     //draw icon
     SDL_Rect dstRect;
-    dstRect.x = 20;
+    dstRect.x = 210;
     dstRect.y = 20;
     dstRect.w = 30;
     dstRect.h = 30;

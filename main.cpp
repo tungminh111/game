@@ -64,8 +64,11 @@ int main(int argc, char* args[]) {
     block[8].loadTex("art/box.png");
     block[8].setBlock(207,402,85,86);
     loc[0].setLoop(0,370,100,200,470);
+
     TimeManager::setData(50); //add
     BulletManager::setData(10); //add
+    HealthManager::setData(3); //add
+
     while (!quit) {
         while (SDL_PollEvent(&e)!=0) {
             if (e.type==SDL_QUIT) {quit=true;}
@@ -81,10 +84,13 @@ int main(int argc, char* args[]) {
         bulletScreen.scan(loc[0]);
         bulletScreen.operate();
         loc[0].operate();
+
         TimeManager::updateData(); //add
         TimeManager::displayTime(); //add
 
         BulletManager::displayBullet(); //add
+
+        HealthManager::displayHealth(); //add
 
 
         bulletScreen.reload();
