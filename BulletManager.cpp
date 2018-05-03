@@ -3,7 +3,7 @@
 int BulletManager::bullet;
 TTF_Font* BulletManager::gFont;
 
-void BulletManager::setData(int _bullet) {
+void BulletManager::setData(const int &_bullet) {
     bullet = _bullet;
     gFont = TTF_OpenFont( "font/brush.ttf", 30 );
 }

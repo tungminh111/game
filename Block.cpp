@@ -6,7 +6,7 @@ void Block::loadTex(std::string s) {
 
 SDL_Rect Block::getRect() {return display;}
 
-void Block::setBlock(int x,int y,int w,int h) {
+void Block::setBlock(const int &x,const int &y,const int &w,const int &h) {
     display={x,y,w,h};
 }
 
@@ -21,3 +21,7 @@ void Block::checkbul(Bullet &bullet) {
     bullet.Collision();
 }
 
+void Block::free() {
+    mTexture.free();
+
+}

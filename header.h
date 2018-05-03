@@ -50,7 +50,7 @@ public:
     ~LTexture();
     void free();
     bool loadTex(std::string c);
-    void render(int x,int y,SDL_RendererFlip flip=SDL_FLIP_NONE,SDL_Rect*clip=NULL,double angle=0,SDL_Point* center=NULL);
+    void render(const int &x,const int &y,SDL_RendererFlip flip=SDL_FLIP_NONE,SDL_Rect*clip=NULL,double angle=0,SDL_Point* center=NULL);
     int getWidth();
     int getHeight();
 private:
@@ -61,7 +61,7 @@ private:
 class Bullet{
 public:
     Bullet();
-    Bullet(int x,int y,DIRECTION dir);
+    Bullet(const int &x,const int &y,DIRECTION &dir);
     void flying();
     void Collision();
     SDL_Point pos;
@@ -74,14 +74,14 @@ public:
 
 class BulletControl{
 public:
-    BulletControl();
-    void addBullet(int x,int y,DIRECTION dir);
-    void operate();
-    void scan(Enermy &enermy);
-    void scan(Block &block);
-    void reload();
+    static void addBullet(const int &x,const int &y,DIRECTION &dir);
+    static void operate();
+    static void scan(Enermy &enermy);
+    static void scan(Block &block);
+    static void reload();
+    static void init();
 private:
-    std::vector<Bullet> bulletList;
+    static std::vector<Bullet> bulletList;
 
 };
 
@@ -91,7 +91,7 @@ public:
     void loadTex(std::string c);
     void handleEvent(SDL_Event &e);
     void die();
-    void operate(BulletControl &bulletScreen,Block block[],int blockNumber);
+    void operate(Block block[],const int &blockNumber);
 private:
     int velX,velY;
     LTexture body[4];
@@ -99,7 +99,7 @@ private:
     int bullet;
     DIRECTION direction;
     SDL_Point pos;
-    int width,height;
+    int mWidth,mHeight;
     int currentMotion;
     int canJump,ableHeight;
     bool jumping,jump,fire,laning;
@@ -108,7 +108,7 @@ private:
 
 class Enermy{
 public:
-    void setLoop(int posX,int posY,int _x1,int _x2,int _y);
+    void setLoop(const int &posX,const int &posY,const int &_x1,const int &_x2,const int &_y);
     void die();
     void operate();
     void checkCollision(Bullet &bullet);
@@ -119,6 +119,7 @@ private:
     SDL_Point pos;
     DIRECTION direction;
     bool died;
+    int dem;
     int hp;
     ENERMYTYPE type;
     LTexture body[4];
@@ -128,12 +129,14 @@ private:
 class LButton {
 public:
     LButton();
-    void setPosition(int x,int y,int w,int h);
+    void setPosition(const int &x,const int &y,const int &w,const int &h);
     void handleEvent(SDL_Event* e);
     void render();
     void link(std::string path);
+    bool isActive();
 private:
     std::string type;
+    bool active;
     SDL_Point mPosition;
     LButtonSprite mCurrentSprite;
     int ButtonWidth,ButtonHeight;
@@ -143,16 +146,17 @@ class Block {
 public:
     void loadTex(std::string s);
     void render();
-    void setBlock(int x,int y,int w,int h);
+    void setBlock(const int &x,const int &y,const int &w,const int &h);
     SDL_Rect getRect();
     void checkbul(Bullet&bullet);
+    void free();
 private:
     SDL_Rect display;
     LTexture mTexture;
 };
 class TimeManager {
 public:
-    static void setData(int _time);
+    static void setData(const int &_time);
     static void updateData();
     static void displayTime();
 private:
@@ -163,13 +167,51 @@ private:
 
 class BulletManager {
 public:
-    static void setData(int _time);
+    static void setData(const int &_time);
     static void updateData();
     static void displayBullet();
     static int get();
 private:
     static int bullet;
     static TTF_Font* gFont;
+};
+
+class Door{
+public:
+    static void load(const int &stage);
+    static void render(const int &x,const int &y);
+    static void loadTex(std::string c);
+    static SDL_Rect getRect();
+    static void free();
+private:
+    static LTexture mTexture;
+    static SDL_Rect display;
+};
+
+class Key{
+public:
+    SDL_Rect getRect();
+    void render(const int &x,const int &y);
+    void loadTex(std::string c);
+    void Gather();
+    friend class Door;
+    static void setKey(const int& keyNum);
+    void free();
+private:
+    SDL_Rect display;
+    LTexture mTexture;
+    static int keyGathered;
+    static int keyNeeded;
+};
+
+class Menu{
+public:
+    static void load();
+};
+
+class Stage1{
+public:
+    static void load();
 };
 
 extern SDL_Window* gWindow;

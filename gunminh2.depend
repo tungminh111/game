@@ -1442,10 +1442,10 @@
 
 1525287546 source:e:\data\c++project\game\bulletmanager.cpp
 
-1525340753 source:c:\users\msi\desktop\game\block.cpp
+1525367022 source:c:\users\msi\desktop\game\block.cpp
 	"header.h"
 
-1525356513 c:\users\msi\desktop\game\header.h
+1525370039 c:\users\msi\desktop\game\header.h
 	<SDL.h>
 	<iostream>
 	<SDL_image.h>
@@ -1454,13 +1454,13 @@
 	<vector>
 	<sstream>
 
-1525340753 source:c:\users\msi\desktop\game\bulletmanager.cpp
+1525367063 source:c:\users\msi\desktop\game\bulletmanager.cpp
 	"header.h"
 
-1525280154 source:c:\users\msi\desktop\game\button.cpp
+1525369953 source:c:\users\msi\desktop\game\button.cpp
 	"header.h"
 
-1525350246 source:c:\users\msi\desktop\game\declaration.cpp
+1525370195 source:c:\users\msi\desktop\game\declaration.cpp
 	"header.h"
 
 1525280098 source:c:\users\msi\desktop\game\enermy.cpp
@@ -1469,10 +1469,10 @@
 1525340753 source:c:\users\msi\desktop\game\lbutton.cpp
 	"header.h"
 
-1525340753 source:c:\users\msi\desktop\game\ltexture.cpp
+1525369977 source:c:\users\msi\desktop\game\ltexture.cpp
 	"header.h"
 
-1525340753 source:c:\users\msi\desktop\game\timemanager.cpp
+1525367609 source:c:\users\msi\desktop\game\timemanager.cpp
 	"header.h"
 	"time.h"
 
@@ -1481,18 +1481,27 @@
 	"begin_code.h"
 	"close_code.h"
 
-1525349400 source:c:\users\msi\desktop\game\bullet.cpp
+1525367036 source:c:\users\msi\desktop\game\bullet.cpp
 	"header.h"
 
-1525349644 source:c:\users\msi\desktop\game\bulletcontrol.cpp
+1525367056 source:c:\users\msi\desktop\game\bulletcontrol.cpp
 	"header.h"
 
-1525356172 source:c:\users\msi\desktop\game\enemy.cpp
+1525369962 source:c:\users\msi\desktop\game\enemy.cpp
 	"header.h"
 
-1525355559 source:c:\users\msi\desktop\game\main.cpp
+1525360721 source:c:\users\msi\desktop\game\main.cpp
 	"header.h"
 
-1525355550 source:c:\users\msi\desktop\game\hero.cpp
+1525369966 source:c:\users\msi\desktop\game\hero.cpp
+	"header.h"
+
+1525368919 source:c:\users\msi\desktop\game\stage1.cpp
+	"header.h"
+
+1525366277 source:c:\users\msi\desktop\game\menu.cpp
+	"header.h"
+
+1525369969 source:c:\users\msi\desktop\game\door and key.cpp
 	"header.h"
 

@@ -1,6 +1,6 @@
 #include "header.h"
 
-Bullet::Bullet(int x,int y,DIRECTION dir){
+Bullet::Bullet(const int &x,const int &y,DIRECTION &dir){
     pos={x,y};
     direction=dir;
     hit=false;

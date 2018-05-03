@@ -5,7 +5,7 @@ int TimeManager::time;
 int TimeManager::baseTime;
 TTF_Font* TimeManager::gFont;
 
-void TimeManager::setData(int _time) {
+void TimeManager::setData(const int &_time) {
     time = _time;
     baseTime = SDL_GetTicks() / 1000 + time;
     gFont = TTF_OpenFont( "font/brush.ttf", 30 );

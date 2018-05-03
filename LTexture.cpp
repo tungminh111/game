@@ -45,7 +45,7 @@ void LTexture::free() {
     }
 }
 
-void LTexture::render(int x,int y,SDL_RendererFlip flip,SDL_Rect*clip,double angle,SDL_Point* center) {
+void LTexture::render(const int &x,const int &y,SDL_RendererFlip flip,SDL_Rect*clip,double angle,SDL_Point* center) {
     SDL_Rect renderQuad={x,y,mWidth,mHeight};
     if (clip!=NULL) {renderQuad.w=clip->w;renderQuad.h=clip->h;}
     SDL_RenderCopyEx(gRenderer,mTexture,clip,&renderQuad,angle,center,flip);

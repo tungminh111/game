@@ -1,15 +1,17 @@
 #include "header.h"
 
-
-BulletControl::BulletControl(){
+void BulletControl::init() {
+    For(i,0,(int)bulletList.size()-1) bulletList[i].Collision();
     bulletList.clear();
 }
 
-void BulletControl::addBullet(int x,int y,DIRECTION dir) {
+void BulletControl::addBullet(const int &x,const int &y,DIRECTION& dir) {
     Bullet bullet(x,y,dir);
     bulletList.push_back(bullet);
 
 }
+
+std::vector<Bullet> BulletControl::bulletList;
 
 void BulletControl::operate() {
     For(i,0,(int)bulletList.size()-1) {

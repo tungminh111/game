@@ -3,12 +3,17 @@
 LButton::LButton(){
     mPosition.x=mPosition.y=0;
     mCurrentSprite = BUTTON_SPRITE_MOUSE_OUT;
+    active=false;
 }
 
-void LButton::setPosition(int x,int y,int w,int h) {
+void LButton::setPosition(const int &x,const int &y,const int &w,const int &h) {
     mPosition={x,y};
     ButtonHeight=h;
     ButtonWidth=w;
+}
+
+bool LButton::isActive() {
+    return active;
 }
 
 void LButton::handleEvent(SDL_Event* e) {
@@ -36,15 +41,16 @@ void LButton::handleEvent(SDL_Event* e) {
         ////////////////////////////////////////////////
         if  (!inside) {
             mCurrentSprite=BUTTON_SPRITE_MOUSE_OUT;
+            active=false;
         } else {
             switch(e->type) {
                 case SDL_MOUSEMOTION:
                 mCurrentSprite = BUTTON_SPRITE_MOUSE_OVER_MOTION;
                 break;
 
-               // case SDL_MOUSEBUTTONDOWN:
-               // mCurrentSprite = BUTTON_SPRITE_MOUSE_DOWN;
-               // break;
+                case SDL_MOUSEBUTTONDOWN:
+                active=true;
+                break;
 
             }
         }
