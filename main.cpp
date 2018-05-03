@@ -41,7 +41,7 @@ int main(int argc, char* args[]) {
     quit=false;
     Hero minh;
     BulletControl bulletScreen;
-    Enermy loc[2];
+    Enermy loc[1];
     minh.loadTex("art/hero");
     For(i,0,1) loc[i].loadTex("art/gunenermy");
     gTexture.loadTex("art/stage1.png");
@@ -63,6 +63,10 @@ int main(int argc, char* args[]) {
     block[7].loadTex("art/flyinglane2.png");
     block[7].setBlock(624,231,373,101);
     loc[0].setLoop(0,370,100,200,470);
+
+    TimeManager::setData(50); //add
+    BulletManager::setData(50); //add
+
     while (!quit) {
         while (SDL_PollEvent(&e)!=0) {
             if (e.type==SDL_QUIT) {quit=true;}
@@ -74,10 +78,16 @@ int main(int argc, char* args[]) {
             bulletScreen.scan(block[i]);
             block[i].render();
         }
-        minh.operate(bulletScreen);
+        minh.operate(bulletScreen,block,8);
         bulletScreen.scan(loc[0]);
         bulletScreen.operate();
         loc[0].operate();
+
+        TimeManager::updateData(); //add
+        TimeManager::displayTime(); //add
+
+        BulletManager::displayBullet(); //add
+
         SDL_RenderPresent(gRenderer);
         SDL_Delay(50);
     }
