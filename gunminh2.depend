@@ -1040,6 +1040,7 @@
 	"close_code.h"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 1525280084 source:c:\users\msi\desktop\gunminh2\gunminh2\bulletsystem.cpp
 	"header.h"
 
@@ -1051,6 +1052,8 @@
 
 1525340461 source:c:\users\msi\desktop\gunminh2\gunminh2\hero.cpp
 =======
+=======
+>>>>>>> bda5c2bab63cf7907dff0c04f313427593ca5ffa
 1525286479 source:e:\data\c++project\game\declaration.cpp
 	"header.h"
 
@@ -1437,6 +1440,9 @@
 	"time.h"
 
 1525287546 source:e:\data\c++project\game\bulletmanager.cpp
+<<<<<<< HEAD
+>>>>>>> bda5c2bab63cf7907dff0c04f313427593ca5ffa
+=======
 >>>>>>> bda5c2bab63cf7907dff0c04f313427593ca5ffa
 	"header.h"
 

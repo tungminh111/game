@@ -16,6 +16,7 @@ bool collised(SDL_Rect rect1,SDL_Rect rect2) {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 ///////////////////////////// HERO///////////////////////////////
 
@@ -74,6 +75,8 @@ void LTexture::render(int x,int y,SDL_RendererFlip flip,SDL_Rect*clip,double ang
     SDL_RenderCopyEx(gRenderer,mTexture,clip,&renderQuad,angle,center,flip);
 }
 
+=======
+>>>>>>> bda5c2bab63cf7907dff0c04f313427593ca5ffa
 =======
 >>>>>>> bda5c2bab63cf7907dff0c04f313427593ca5ffa
 bool initSDL(){
