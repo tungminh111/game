@@ -102,9 +102,4 @@ int main(int argc, char* args[]) {
 
     closeSDL();
     return 0;
-<<<<<<< HEAD
-=======
-    //bbb
-//aaaaaaaaaaaaab
->>>>>>> 8f6fa0ef83386c96e6ddda7918857c4a0f27edc6
 }
