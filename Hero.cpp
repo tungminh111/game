@@ -29,8 +29,7 @@ void Hero::handleEvent(SDL_Event &e) {
             case SDLK_LEFT: velX -= 5; break;
             case SDLK_RIGHT: velX += 5; break;
             case SDLK_x:
-                fire=true;
-                BulletManager::updateData(); //add
+                fire=true; //add
                 break;
         }
     }
@@ -50,6 +49,7 @@ void Hero::operate(BulletControl &bulletScreen) {
         if (direction==RIGHT) bulletScreen.addBullet(pos.x+112,pos.y+41,direction); else
             bulletScreen.addBullet(pos.x-20,pos.y+41,direction);
         fire=false;
+        BulletManager::updateData();
     }
     SDL_Point past=pos;
     bool st=true;
