@@ -67,10 +67,9 @@ public:
     SDL_Point pos;
     int width=20;
     int height=6;
-private:
-    DIRECTION direction;
     bool hit;
     LTexture mBullet;
+    DIRECTION direction;
 };
 
 class BulletControl{
@@ -80,6 +79,7 @@ public:
     void operate();
     void scan(Enermy &enermy);
     void scan(Block &block);
+    void reload();
 private:
     std::vector<Bullet> bulletList;
 
@@ -93,7 +93,6 @@ public:
     void die();
     void operate(BulletControl &bulletScreen,Block block[],int blockNumber);
 private:
-    SDL_Rect canInjure;
     int velX,velY;
     LTexture body[4];
     int hp;
@@ -104,6 +103,7 @@ private:
     int currentMotion;
     int canJump,currentHeight;
     bool jumping,jump,fire;
+    SDL_Rect canInjure[TOTAL_DIR];
 };
 
 class Enermy{
@@ -150,7 +150,6 @@ private:
     SDL_Rect display;
     LTexture mTexture;
 };
-
 class TimeManager {
 public:
     static void setData(int _time);

@@ -36,16 +36,15 @@ int main(int argc, char* args[]) {
         For(i,0,TOTAL_BUTTON-1) button[i].render();
         SDL_RenderPresent(gRenderer);
     }
-
     /////////////////////////////////////// gameplay
     quit=false;
-    Hero minh;
     BulletControl bulletScreen;
-    Enermy loc[1];
+    Hero minh;
     minh.loadTex("art/hero");
-    For(i,0,1) loc[i].loadTex("art/gunenermy");
+    Enermy loc[1];
+    For(i,0,0) loc[i].loadTex("art/gunenermy");
     gTexture.loadTex("art/stage1.png");
-    Block block[8];
+    Block block[9];
     block[0].loadTex("art/flyinglane.png");
     block[0].setBlock(312,346,249,54);
     block[1].loadTex("art/box.png");
@@ -62,11 +61,11 @@ int main(int argc, char* args[]) {
     block[6].setBlock(765,60,85,86);
     block[7].loadTex("art/flyinglane2.png");
     block[7].setBlock(624,231,373,101);
+    block[8].loadTex("art/box.png");
+    block[8].setBlock(207,402,85,86);
     loc[0].setLoop(0,370,100,200,470);
-
     TimeManager::setData(50); //add
     BulletManager::setData(50); //add
-
     while (!quit) {
         while (SDL_PollEvent(&e)!=0) {
             if (e.type==SDL_QUIT) {quit=true;}
@@ -74,22 +73,23 @@ int main(int argc, char* args[]) {
         }
         SDL_RenderClear(gRenderer);
         gTexture.render(0,0);
-        For(i,0,7) {
+        minh.operate(bulletScreen,block,9);
+        For(i,0,8) {
             bulletScreen.scan(block[i]);
             block[i].render();
         }
-        minh.operate(bulletScreen,block,8);
         bulletScreen.scan(loc[0]);
         bulletScreen.operate();
         loc[0].operate();
-
         TimeManager::updateData(); //add
         TimeManager::displayTime(); //add
 
         BulletManager::displayBullet(); //add
 
+
+        bulletScreen.reload();
         SDL_RenderPresent(gRenderer);
-        SDL_Delay(50);
+        SDL_Delay(40);
     }
 
 
@@ -102,5 +102,4 @@ int main(int argc, char* args[]) {
 
     closeSDL();
     return 0;
-//aaaaaaaaaaaaab
 }

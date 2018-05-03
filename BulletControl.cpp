@@ -1,5 +1,6 @@
 #include "header.h"
 
+
 BulletControl::BulletControl(){
     bulletList.clear();
 }
@@ -11,7 +12,17 @@ void BulletControl::addBullet(int x,int y,DIRECTION dir) {
 }
 
 void BulletControl::operate() {
-    For(i,0,(int)bulletList.size()-1) bulletList[i].flying();
+    For(i,0,(int)bulletList.size()-1) {
+        bulletList[i].flying();
+    }
+}
+
+void BulletControl::reload() {
+    std::vector<Bullet> tmp;
+    For(i,0,(int)bulletList.size()-1) {
+        if (!bulletList[i].hit) tmp.push_back(bulletList[i]);//bulletList[i].Collision();
+    }
+    bulletList=tmp;
 }
 
 void BulletControl::scan(Enermy &enermy) {
@@ -21,3 +32,4 @@ void BulletControl::scan(Enermy &enermy) {
 void BulletControl::scan(Block &block) {
     For(i,0,(int)bulletList.size()-1) block.checkbul(bulletList[i]);
 }
+
