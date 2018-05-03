@@ -1,19 +1,19 @@
 #include "header.h"
 
 Hero::Hero() {
-    pos={800,270};
+    pos={0,270};
     direction=RIGHT;
     velX=0;
-    velY=20;
+    velY=18;
     jump=jumping=false;
-    canJump=120;
-    currentHeight=0;
+    ableHeight=120;
     currentMotion=0;
-    width=113;
-    height=130;
+    width=80;
+    height=92;
     fire=false;
-    canInjure[RIGHT]={16,8,20,112};
-    canInjure[LEFT]={77,8,20,112};
+    laning=false;
+    canInjure[RIGHT]={9,9,22,77};
+    canInjure[LEFT]={50,9,22,77};
 }
 
 void Hero::loadTex(std::string c) {
@@ -30,8 +30,8 @@ void Hero::handleEvent(SDL_Event &e) {
         switch( e.key.keysym.sym )
         {
             case SDLK_UP: jump=true; break;
-            case SDLK_LEFT: velX -= 5; break;
-            case SDLK_RIGHT: velX += 5; break;
+            case SDLK_LEFT: velX -= 4; break;
+            case SDLK_RIGHT: velX += 4; break;
             case SDLK_x:fire=true;break;
         }
     }
@@ -40,25 +40,28 @@ void Hero::handleEvent(SDL_Event &e) {
         switch( e.key.keysym.sym )
         {
             case SDLK_UP: jump=false; break;
-            case SDLK_LEFT: velX += 5; break;
-            case SDLK_RIGHT: velX -= 5; break;
+            case SDLK_LEFT: velX += 4; break;
+            case SDLK_RIGHT: velX -= 4; break;
         }
     }
 }
 
 void Hero::operate(BulletControl &bulletScreen,Block block[],int blockNumber) {
-    if (fire) {
-        if (direction==RIGHT) bulletScreen.addBullet(pos.x+112,pos.y+41,direction); else
-            bulletScreen.addBullet(pos.x-20,pos.y+41,direction);
+    if (fire&&BulletManager::get()) {
+        if (direction==RIGHT) bulletScreen.addBullet(pos.x+78,pos.y+30,direction); else
+            bulletScreen.addBullet(pos.x-10,pos.y,direction);
         fire=false;
+        BulletManager::updateData();
     }
     bool st=true;
     if (velX>0) {
         int velXX=velX;
         For(i,0,blockNumber-1) {
             SDL_Rect rect1=block[i].getRect();
-            if (rect1.x>pos.x+width-1&&std::max(rect1.y,pos.y)<=std::min(rect1.y+rect1.h-1,pos.y+height-1)){
-                velXX=std::min(velXX,rect1.x-(pos.x+width-1)-1);
+            if (rect1.x>pos.x+canInjure[direction].x+canInjure[direction].w-1
+            &&          std::max(rect1.y,pos.y+canInjure[direction].y)
+                        <=std::min(rect1.y+rect1.h-1,pos.y+canInjure[direction].y+canInjure[direction].h-1)){
+                velXX=std::min(velXX,rect1.x-(pos.x+canInjure[direction].x+canInjure[direction].w-1)-1);
             }
         }
         if (direction==RIGHT) {
@@ -73,8 +76,11 @@ void Hero::operate(BulletControl &bulletScreen,Block block[],int blockNumber) {
         int velXX=velX;
         For(i,0,blockNumber-1) {
             SDL_Rect rect1=block[i].getRect();
-            if (rect1.x+rect1.w-1<pos.x&&std::max(rect1.y,pos.y)<=std::min(rect1.y+rect1.h-1,pos.y+height-1)) {
-                velXX=std::max(velXX,-pos.x+(rect1.x+rect1.w-1)+1);
+            if (rect1.x+rect1.w-1<pos.x+canInjure[direction].x
+            &&          std::max(rect1.y,pos.y+canInjure[direction].y)
+                        <=std::min(rect1.y+rect1.h-1,pos.y+canInjure[direction].y+canInjure[direction].h-1)) {
+                velXX=std::max(velXX,-(pos.x+canInjure[direction].x)+(rect1.x+rect1.w-1)+1);
+                std::cout<<i<<" "<<-(pos.x+canInjure[direction].x)+(rect1.x+rect1.w-1)+1<<" "<<laning<<"\n";
             }
         }
         if (direction==LEFT) {
@@ -86,26 +92,35 @@ void Hero::operate(BulletControl &bulletScreen,Block block[],int blockNumber) {
         }
     }
     if (velX==0) st=false;
-    int stop=SDLScreenHeight-height+1;
+    int stopFall=SDLScreenHeight-height+1;
+    int stopJump=canJump;
     For(i,0,blockNumber-1) {
         SDL_Rect rect1=block[i].getRect();
-        if (rect1.y>=pos.y+height-1&&std::max(rect1.x,pos.x)<=std::min(rect1.x+rect1.w-1,pos.x+width-1))
-            stop=std::min(stop,rect1.y-height);
+        if (std::max(rect1.x,pos.x+canInjure[direction].x)
+            <=std::min(rect1.x+rect1.w-1,pos.x+canInjure[direction].x+canInjure[direction].w-1)) {
+                if (rect1.y>pos.y+canInjure[direction].y+canInjure[direction].h-1)
+                    stopFall=std::min(stopFall,rect1.y-(canInjure[direction].y+canInjure[direction].h));
+                if (rect1.y+rect1.h-1<pos.y)
+                    stopJump=std::max(stopJump,rect1.y+rect1.h);
+            }
     }
-    if (!currentHeight) {
-        if (jump) jumping=true; else
+    if (laning) {
+        if (jump) jumping=true,laning=false,canJump=stopFall-ableHeight+1; else
         if (st) {
             currentMotion++;
             currentMotion%=4;
         }
-        if (jumping) currentHeight+=velY,pos.y-=velY; else pos.y=std::min(pos.y+velY,stop);
+        if (pos.y<stopFall) laning=false;
     } else {
-        if (jumping) currentHeight+=velY,pos.y-=velY; else {
+        if (jumping) {
+            pos.y-=velY;
+            pos.y=std::max(pos.y,stopJump);
+            if (pos.y==stopJump) jumping=false;
+        } else {
             pos.y+=velY;
-            pos.y=std::min(stop,pos.y);
-            if (pos.y==stop) currentHeight=0; else currentHeight=1;
+            pos.y=std::min(stopFall,pos.y);
+            if (pos.y==stopFall) laning=true; else laning=false;
         }
-        if (currentHeight==canJump) jumping=false;
     }
     if (direction==LEFT) body[currentMotion].render(pos.x,pos.y,SDL_FLIP_HORIZONTAL); else body[currentMotion].render(pos.x,pos.y);
 }

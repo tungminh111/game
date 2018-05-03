@@ -12,6 +12,8 @@ void BulletManager::updateData() {
     bullet--;
 }
 
+int BulletManager::get(){ return bullet;}
+
 void BulletManager::displayBullet() {
     //draw icon
     SDL_Rect dstRect;

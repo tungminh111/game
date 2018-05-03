@@ -8,8 +8,8 @@ void Enermy::setLoop(int posX,int posY,int _x1,int _x2,int _y) {
     currentMotion=0;
     direction=RIGHT;
     mWidth=mHeight=0;
-    canInjure[RIGHT]={16,8,20,112};
-    canInjure[LEFT]={77,8,20,112};
+    canInjure[RIGHT]={9,9,22,77};
+    canInjure[LEFT]={50,9,22,77};
     died=false;
 }
 

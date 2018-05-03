@@ -1445,7 +1445,7 @@
 1525340753 source:c:\users\msi\desktop\game\block.cpp
 	"header.h"
 
-1525349593 c:\users\msi\desktop\game\header.h
+1525356513 c:\users\msi\desktop\game\header.h
 	<SDL.h>
 	<iostream>
 	<SDL_image.h>
@@ -1487,12 +1487,12 @@
 1525349644 source:c:\users\msi\desktop\game\bulletcontrol.cpp
 	"header.h"
 
-1525349627 source:c:\users\msi\desktop\game\enemy.cpp
+1525356172 source:c:\users\msi\desktop\game\enemy.cpp
 	"header.h"
 
-1525350578 source:c:\users\msi\desktop\game\main.cpp
+1525355559 source:c:\users\msi\desktop\game\main.cpp
 	"header.h"
 
-1525350161 source:c:\users\msi\desktop\game\hero.cpp
+1525355550 source:c:\users\msi\desktop\game\hero.cpp
 	"header.h"
 

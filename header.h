@@ -101,8 +101,8 @@ private:
     SDL_Point pos;
     int width,height;
     int currentMotion;
-    int canJump,currentHeight;
-    bool jumping,jump,fire;
+    int canJump,ableHeight;
+    bool jumping,jump,fire,laning;
     SDL_Rect canInjure[TOTAL_DIR];
 };
 
@@ -166,6 +166,7 @@ public:
     static void setData(int _time);
     static void updateData();
     static void displayBullet();
+    static int get();
 private:
     static int bullet;
     static TTF_Font* gFont;
