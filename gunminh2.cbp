@@ -38,6 +38,13 @@
 			<Add option="-lSDL2_ttf" />
 			<Add directory="../../CodeBlocks/SDL2/lib" />
 		</Linker>
+<<<<<<< HEAD
+<<<<<<< HEAD
+		<Unit filename="bulletsystem.cpp" />
+		<Unit filename="button.cpp" />
+=======
+=======
+>>>>>>> bda5c2bab63cf7907dff0c04f313427593ca5ffa
 		<Unit filename="Block.cpp" />
 		<Unit filename="Bullet.cpp" />
 		<Unit filename="BulletControl.cpp" />
@@ -47,8 +54,14 @@
 		<Unit filename="LButton.cpp" />
 		<Unit filename="LTexture.cpp" />
 		<Unit filename="TimeManager.cpp" />
+<<<<<<< HEAD
+>>>>>>> bda5c2bab63cf7907dff0c04f313427593ca5ffa
+=======
+>>>>>>> bda5c2bab63cf7907dff0c04f313427593ca5ffa
 		<Unit filename="declaration.cpp" />
+		<Unit filename="enermy.cpp" />
 		<Unit filename="header.h" />
+		<Unit filename="hero.cpp" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />

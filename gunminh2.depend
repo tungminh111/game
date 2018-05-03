@@ -1,8 +1,8 @@
 # depslib dependency file v1.0
-1525278894 source:c:\users\msi\desktop\gunminh2\gunminh2\main.cpp
+1525339944 source:c:\users\msi\desktop\gunminh2\gunminh2\main.cpp
 	"header.h"
 
-1525278949 c:\users\msi\desktop\gunminh2\gunminh2\header.h
+1525340344 c:\users\msi\desktop\gunminh2\gunminh2\header.h
 	<SDL.h>
 	<iostream>
 	<SDL_image.h>
@@ -345,7 +345,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1525278258 source:c:\users\msi\desktop\gunminh2\gunminh2\declaration.cpp
+1525280208 source:c:\users\msi\desktop\gunminh2\gunminh2\declaration.cpp
 	"header.h"
 
 1519932851 c:\users\msi\desktop\i686-w64-mingw32\include\sdl2\sdl_image.h
@@ -1039,6 +1039,21 @@
 	"begin_code.h"
 	"close_code.h"
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+1525280084 source:c:\users\msi\desktop\gunminh2\gunminh2\bulletsystem.cpp
+	"header.h"
+
+1525280154 source:c:\users\msi\desktop\gunminh2\gunminh2\button.cpp
+	"header.h"
+
+1525280098 source:c:\users\msi\desktop\gunminh2\gunminh2\enermy.cpp
+	"header.h"
+
+1525340461 source:c:\users\msi\desktop\gunminh2\gunminh2\hero.cpp
+=======
+=======
+>>>>>>> bda5c2bab63cf7907dff0c04f313427593ca5ffa
 1525286479 source:e:\data\c++project\game\declaration.cpp
 	"header.h"
 
@@ -1425,5 +1440,9 @@
 	"time.h"
 
 1525287546 source:e:\data\c++project\game\bulletmanager.cpp
+<<<<<<< HEAD
+>>>>>>> bda5c2bab63cf7907dff0c04f313427593ca5ffa
+=======
+>>>>>>> bda5c2bab63cf7907dff0c04f313427593ca5ffa
 	"header.h"
 

@@ -91,18 +91,19 @@ public:
     void loadTex(std::string c);
     void handleEvent(SDL_Event &e);
     void die();
-    void operate(BulletControl &bulletScreen);
+    void operate(BulletControl &bulletScreen,Block block[],int blockNumber);
 private:
     SDL_Rect canInjure;
+    int velX,velY;
     LTexture body[4];
     int hp;
     int bullet;
-    int velX,velY;
-    bool jumping,jump,fire;
     DIRECTION direction;
     SDL_Point pos;
+    int width,height;
     int currentMotion;
     int canJump,currentHeight;
+    bool jumping,jump,fire;
 };
 
 class Enermy{

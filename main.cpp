@@ -41,7 +41,7 @@ int main(int argc, char* args[]) {
     quit=false;
     Hero minh;
     BulletControl bulletScreen;
-    Enermy loc[2];
+    Enermy loc[1];
     minh.loadTex("art/hero");
     For(i,0,1) loc[i].loadTex("art/gunenermy");
     gTexture.loadTex("art/stage1.png");
@@ -78,7 +78,7 @@ int main(int argc, char* args[]) {
             bulletScreen.scan(block[i]);
             block[i].render();
         }
-        minh.operate(bulletScreen);
+        minh.operate(bulletScreen,block,8);
         bulletScreen.scan(loc[0]);
         bulletScreen.operate();
         loc[0].operate();
