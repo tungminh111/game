@@ -176,6 +176,7 @@ private:
     static TTF_Font* gFont;
 };
 
+<<<<<<< HEAD
 class Door{
 public:
     static void load(const int &stage);
@@ -212,6 +213,16 @@ public:
 class Stage1{
 public:
     static void load();
+=======
+class HealthManager {
+public:
+    static void setData(int _maxHealth);
+    static void updateHealth(int change);
+    static void displayHealth();
+private:
+    static int health;
+    static int maxHealth;
+>>>>>>> e54a783c4145f7e148bb36eee50ef5184b9a24b8
 };
 
 extern SDL_Window* gWindow;

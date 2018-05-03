@@ -1055,10 +1055,10 @@
 1525287546 5c2bab63cf7907dff0c04f313427593ca5ffa
 	"header.h"
 
-1525286479 source:e:\data\c++project\game\declaration.cpp
+1525356738 source:e:\data\c++project\game\declaration.cpp
 	"header.h"
 
-1525287107 e:\data\c++project\game\header.h
+1525365491 e:\data\c++project\game\header.h
 	<SDL.h>
 	<iostream>
 	<SDL_image.h>
@@ -1067,7 +1067,7 @@
 	<vector>
 	<sstream>
 
-1525287610 source:e:\data\c++project\game\main.cpp
+1525369752 source:e:\data\c++project\game\main.cpp
 	"header.h"
 
 1525281836 source:e:\data\c++project\game\block.cpp
@@ -1418,16 +1418,16 @@
 	"begin_code.h"
 	"close_code.h"
 
-1525282357 source:e:\data\c++project\game\bullet.cpp
+1525356738 source:e:\data\c++project\game\bullet.cpp
 	"header.h"
 
-1525282368 source:e:\data\c++project\game\bulletcontrol.cpp
+1525356738 source:e:\data\c++project\game\bulletcontrol.cpp
 	"header.h"
 
-1525282410 source:e:\data\c++project\game\enemy.cpp
+1525356738 source:e:\data\c++project\game\enemy.cpp
 	"header.h"
 
-1525317393 source:e:\data\c++project\game\hero.cpp
+1525356738 source:e:\data\c++project\game\hero.cpp
 	"header.h"
 
 1525282492 source:e:\data\c++project\game\lbutton.cpp
@@ -1436,11 +1436,12 @@
 1525282592 source:e:\data\c++project\game\ltexture.cpp
 	"header.h"
 
-1525287546 source:e:\data\c++project\game\timemanager.cpp
+1525369953 source:e:\data\c++project\game\timemanager.cpp
 	"header.h"
 	"time.h"
 
-1525287546 source:e:\data\c++project\game\bulletmanager.cpp
+1525369979 source:e:\data\c++project\game\bulletmanager.cpp
+	"header.h"
 
 1525367022 source:c:\users\msi\desktop\game\block.cpp
 	"header.h"
@@ -1503,5 +1504,11 @@
 	"header.h"
 
 1525369969 source:c:\users\msi\desktop\game\door and key.cpp
+	"header.h"
+
+1525342723 source:e:\data\c++project\game\button.cpp
+	"header.h"
+
+1525369937 source:e:\data\c++project\game\healthmanager.cpp
 	"header.h"
 
