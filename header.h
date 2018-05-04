@@ -104,7 +104,7 @@ private:
 
 class Hero {
 public:
-    void init();
+    void init(const int &x, const int &y);
     void loadTex(std::string c);
     void handleEvent(SDL_Event &e);
     void die();
@@ -223,6 +223,7 @@ public:
     static void setKey(const int& keyNum);
     void free();
     static bool enough();
+    static void init();
     static void displayKey();
 private:
     SDL_Rect display;
@@ -259,6 +260,18 @@ private:
     static SDL_Event e;
 };
 
+class Stage3{
+public:
+    static void load();
+private:
+    static Hero minh;
+    static Enermy loc[50];
+    static SDL_Event e;
+    static int dem;
+    static Block block[1];
+};
+
+
 class HealthManager {
 public:
     static void setData(int _maxHealth);
@@ -280,4 +293,5 @@ extern int buttonNumber;
 extern LTexture giamHp;
 extern LTexture Wasted;
 extern int lastLevel;
+extern LTexture Win;
 #endif

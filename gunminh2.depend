@@ -1446,7 +1446,7 @@
 1525367022 source:c:\users\msi\desktop\game\block.cpp
 	"header.h"
 
-1525405812 c:\users\msi\desktop\game\header.h
+1525411063 c:\users\msi\desktop\game\header.h
 	<SDL.h>
 	<iostream>
 	<SDL_image.h>
@@ -1461,7 +1461,7 @@
 1525369953 source:c:\users\msi\desktop\game\button.cpp
 	"header.h"
 
-1525401299 source:c:\users\msi\desktop\game\declaration.cpp
+1525410460 source:c:\users\msi\desktop\game\declaration.cpp
 	"header.h"
 
 1525280098 source:c:\users\msi\desktop\game\enermy.cpp
@@ -1491,19 +1491,19 @@
 1525405797 source:c:\users\msi\desktop\game\enemy.cpp
 	"header.h"
 
-1525402438 source:c:\users\msi\desktop\game\main.cpp
+1525410393 source:c:\users\msi\desktop\game\main.cpp
 	"header.h"
 
-1525404894 source:c:\users\msi\desktop\game\hero.cpp
+1525410017 source:c:\users\msi\desktop\game\hero.cpp
 	"header.h"
 
-1525405950 source:c:\users\msi\desktop\game\stage1.cpp
+1525409919 source:c:\users\msi\desktop\game\stage1.cpp
 	"header.h"
 
-1525405926 source:c:\users\msi\desktop\game\menu.cpp
+1525410751 source:c:\users\msi\desktop\game\menu.cpp
 	"header.h"
 
-1525406094 source:c:\users\msi\desktop\game\door and key.cpp
+1525410963 source:c:\users\msi\desktop\game\door and key.cpp
 	"header.h"
 
 1525409267 source:e:\data\c++project\game\button.cpp
@@ -1515,7 +1515,10 @@
 1525401806 source:c:\users\msi\desktop\game\healthmanager.cpp
 	"header.h"
 
-1525405926 source:c:\users\msi\desktop\game\stage2.cpp
+1525410587 source:c:\users\msi\desktop\game\stage2.cpp
+	"header.h"
+
+1525410746 source:c:\users\msi\desktop\game\stage3.cpp
 	"header.h"
 
 1525409267 source:e:\data\c++project\game\door and key.cpp
