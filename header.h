@@ -223,7 +223,11 @@ public:
     static void setKey(const int& keyNum);
     void free();
     static bool enough();
+<<<<<<< HEAD
     static void init();
+=======
+    static void displayKey();
+>>>>>>> cc9cab09d246420b3e2fb79415b2037e1be99756
 private:
     SDL_Rect display;
     bool gathered;
