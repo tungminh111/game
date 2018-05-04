@@ -1055,10 +1055,10 @@
 1525287546 5c2bab63cf7907dff0c04f313427593ca5ffa
 	"header.h"
 
-1525409267 source:e:\data\c++project\game\declaration.cpp
+1525411696 source:e:\data\c++project\game\declaration.cpp
 	"header.h"
 
-1525410105 e:\data\c++project\game\header.h
+1525411696 e:\data\c++project\game\header.h
 	<SDL.h>
 	<iostream>
 	<SDL_image.h>
@@ -1067,7 +1067,7 @@
 	<vector>
 	<sstream>
 
-1525409267 source:e:\data\c++project\game\main.cpp
+1525411696 source:e:\data\c++project\game\main.cpp
 	"header.h"
 
 1525409266 source:e:\data\c++project\game\block.cpp
@@ -1427,7 +1427,7 @@
 1525409266 source:e:\data\c++project\game\enemy.cpp
 	"header.h"
 
-1525409266 source:e:\data\c++project\game\hero.cpp
+1525411696 source:e:\data\c++project\game\hero.cpp
 	"header.h"
 
 1525282492 source:e:\data\c++project\game\lbutton.cpp
@@ -1521,15 +1521,18 @@
 1525410746 source:c:\users\msi\desktop\game\stage3.cpp
 	"header.h"
 
-1525409267 source:e:\data\c++project\game\door and key.cpp
+1525412032 source:e:\data\c++project\game\door and key.cpp
 	"header.h"
 
-1525409267 source:e:\data\c++project\game\menu.cpp
+1525411696 source:e:\data\c++project\game\menu.cpp
 	"header.h"
 
-1525410354 source:e:\data\c++project\game\stage1.cpp
+1525412049 source:e:\data\c++project\game\stage1.cpp
 	"header.h"
 
-1525409266 source:e:\data\c++project\game\stage2.cpp
+1525412073 source:e:\data\c++project\game\stage2.cpp
+	"header.h"
+
+1525412088 source:e:\data\c++project\game\stage3.cpp
 	"header.h"
 

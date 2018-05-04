@@ -94,6 +94,7 @@ void Stage2::load() {
         BulletManager::displayBullet();
         HealthManager::displayHealth();
         BulletControl::reload();
+        Key::displayKey();
         SDL_RenderPresent(gRenderer);
         SDL_Delay(25);
     }
