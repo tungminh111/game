@@ -51,18 +51,15 @@
 		<Unit filename="BulletManager.cpp" />
 		<Unit filename="Enemy.cpp" />
 		<Unit filename="HealthManager.cpp" />
-		<Unit filename="Hero.cpp" />
 		<Unit filename="LTexture.cpp" />
 		<Unit filename="Stage2.cpp" />
-<<<<<<< HEAD
 		<Unit filename="Stage3.cpp" />
-=======
->>>>>>> cc9cab09d246420b3e2fb79415b2037e1be99756
 		<Unit filename="TimeManager.cpp" />
 		<Unit filename="button.cpp" />
 		<Unit filename="declaration.cpp" />
 		<Unit filename="door and key.cpp" />
 		<Unit filename="header.h" />
+		<Unit filename="hero.cpp" />
 		<Unit filename="main.cpp" />
 		<Unit filename="menu.cpp" />
 		<Unit filename="stage1.cpp" />
