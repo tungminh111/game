@@ -1446,7 +1446,7 @@
 1525367022 source:c:\users\msi\desktop\game\block.cpp
 	"header.h"
 
-1525410385 c:\users\msi\desktop\game\header.h
+1525411063 c:\users\msi\desktop\game\header.h
 	<SDL.h>
 	<iostream>
 	<SDL_image.h>
@@ -1503,7 +1503,7 @@
 1525410751 source:c:\users\msi\desktop\game\menu.cpp
 	"header.h"
 
-1525410702 source:c:\users\msi\desktop\game\door and key.cpp
+1525410963 source:c:\users\msi\desktop\game\door and key.cpp
 	"header.h"
 
 1525409267 source:e:\data\c++project\game\button.cpp

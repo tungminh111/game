@@ -35,6 +35,7 @@ void Key::Gather() {
     gathered=true;
     ++keyGathered;
     mTexture.free();
+    displayKey();
 }
 
 SDL_Rect Key::getRect(){ return display;}
