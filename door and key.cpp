@@ -57,3 +57,22 @@ void Key::free() {
 
 void Key::setKey(const int &keyNum) {keyNeeded=keyNum;};
 bool Key::enough(){ return keyGathered==keyNeeded;};
+
+void Key::displayKey() {
+    gScreenSurface = IMG_Load("art/key.png");
+    SDL_Texture* key = SDL_CreateTextureFromSurface(gRenderer, gScreenSurface);
+
+    SDL_Rect dstRect;
+    if (keyGathered == 1) dstRect.x = 80;
+    else dstRect.x = 40;
+    dstRect.y = 60;
+    dstRect.w = gScreenSurface->w;
+    dstRect.h = gScreenSurface->h;
+
+    SDL_FreeSurface(gScreenSurface);
+
+    for (int i = 0; i < keyGathered; i++) {
+        SDL_RenderCopy(gRenderer, key, NULL, &dstRect);
+        dstRect.x += 80;
+    }
+}

@@ -1055,10 +1055,10 @@
 1525287546 5c2bab63cf7907dff0c04f313427593ca5ffa
 	"header.h"
 
-1525356738 source:e:\data\c++project\game\declaration.cpp
+1525409267 source:e:\data\c++project\game\declaration.cpp
 	"header.h"
 
-1525365491 e:\data\c++project\game\header.h
+1525410105 e:\data\c++project\game\header.h
 	<SDL.h>
 	<iostream>
 	<SDL_image.h>
@@ -1067,10 +1067,10 @@
 	<vector>
 	<sstream>
 
-1525369752 source:e:\data\c++project\game\main.cpp
+1525409267 source:e:\data\c++project\game\main.cpp
 	"header.h"
 
-1525281836 source:e:\data\c++project\game\block.cpp
+1525409266 source:e:\data\c++project\game\block.cpp
 	"header.h"
 
 1519922211 e:\data\codeblocks\sdl2\include\sdl2\sdl.h
@@ -1418,29 +1418,29 @@
 	"begin_code.h"
 	"close_code.h"
 
-1525356738 source:e:\data\c++project\game\bullet.cpp
+1525409266 source:e:\data\c++project\game\bullet.cpp
 	"header.h"
 
-1525356738 source:e:\data\c++project\game\bulletcontrol.cpp
+1525409266 source:e:\data\c++project\game\bulletcontrol.cpp
 	"header.h"
 
-1525356738 source:e:\data\c++project\game\enemy.cpp
+1525409266 source:e:\data\c++project\game\enemy.cpp
 	"header.h"
 
-1525356738 source:e:\data\c++project\game\hero.cpp
+1525409266 source:e:\data\c++project\game\hero.cpp
 	"header.h"
 
 1525282492 source:e:\data\c++project\game\lbutton.cpp
 	"header.h"
 
-1525282592 source:e:\data\c++project\game\ltexture.cpp
+1525409266 source:e:\data\c++project\game\ltexture.cpp
 	"header.h"
 
-1525369953 source:e:\data\c++project\game\timemanager.cpp
+1525409266 source:e:\data\c++project\game\timemanager.cpp
 	"header.h"
 	"time.h"
 
-1525369979 source:e:\data\c++project\game\bulletmanager.cpp
+1525409266 source:e:\data\c++project\game\bulletmanager.cpp
 	"header.h"
 
 1525367022 source:c:\users\msi\desktop\game\block.cpp
@@ -1506,15 +1506,27 @@
 1525406094 source:c:\users\msi\desktop\game\door and key.cpp
 	"header.h"
 
-1525342723 source:e:\data\c++project\game\button.cpp
+1525409267 source:e:\data\c++project\game\button.cpp
 	"header.h"
 
-1525369937 source:e:\data\c++project\game\healthmanager.cpp
+1525409266 source:e:\data\c++project\game\healthmanager.cpp
 	"header.h"
 
 1525401806 source:c:\users\msi\desktop\game\healthmanager.cpp
 	"header.h"
 
 1525405926 source:c:\users\msi\desktop\game\stage2.cpp
+	"header.h"
+
+1525409267 source:e:\data\c++project\game\door and key.cpp
+	"header.h"
+
+1525409267 source:e:\data\c++project\game\menu.cpp
+	"header.h"
+
+1525410354 source:e:\data\c++project\game\stage1.cpp
+	"header.h"
+
+1525409266 source:e:\data\c++project\game\stage2.cpp
 	"header.h"
 
