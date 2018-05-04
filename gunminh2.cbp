@@ -48,6 +48,7 @@
 		<Unit filename="BulletControl.cpp" />
 		<Unit filename="BulletManager.cpp" />
 		<Unit filename="Enemy.cpp" />
+		<Unit filename="HealthManager.cpp" />
 		<Unit filename="LTexture.cpp" />
 		<Unit filename="TimeManager.cpp" />
 		<Unit filename="button.cpp" />

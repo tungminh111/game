@@ -1446,7 +1446,7 @@
 1525367022 source:c:\users\msi\desktop\game\block.cpp
 	"header.h"
 
-1525370677 c:\users\msi\desktop\game\header.h
+1525405812 c:\users\msi\desktop\game\header.h
 	<SDL.h>
 	<iostream>
 	<SDL_image.h>
@@ -1461,7 +1461,7 @@
 1525369953 source:c:\users\msi\desktop\game\button.cpp
 	"header.h"
 
-1525370195 source:c:\users\msi\desktop\game\declaration.cpp
+1525401299 source:c:\users\msi\desktop\game\declaration.cpp
 	"header.h"
 
 1525280098 source:c:\users\msi\desktop\game\enermy.cpp
@@ -1473,7 +1473,7 @@
 1525369977 source:c:\users\msi\desktop\game\ltexture.cpp
 	"header.h"
 
-1525370470 source:c:\users\msi\desktop\game\timemanager.cpp
+1525402575 source:c:\users\msi\desktop\game\timemanager.cpp
 	"header.h"
 	"time.h"
 
@@ -1485,25 +1485,25 @@
 1525367036 source:c:\users\msi\desktop\game\bullet.cpp
 	"header.h"
 
-1525367056 source:c:\users\msi\desktop\game\bulletcontrol.cpp
+1525405250 source:c:\users\msi\desktop\game\bulletcontrol.cpp
 	"header.h"
 
-1525369962 source:c:\users\msi\desktop\game\enemy.cpp
+1525405797 source:c:\users\msi\desktop\game\enemy.cpp
 	"header.h"
 
-1525370470 source:c:\users\msi\desktop\game\main.cpp
+1525402438 source:c:\users\msi\desktop\game\main.cpp
 	"header.h"
 
-1525369966 source:c:\users\msi\desktop\game\hero.cpp
+1525404894 source:c:\users\msi\desktop\game\hero.cpp
 	"header.h"
 
-1525370366 source:c:\users\msi\desktop\game\stage1.cpp
+1525405950 source:c:\users\msi\desktop\game\stage1.cpp
 	"header.h"
 
-1525366277 source:c:\users\msi\desktop\game\menu.cpp
+1525405926 source:c:\users\msi\desktop\game\menu.cpp
 	"header.h"
 
-1525369969 source:c:\users\msi\desktop\game\door and key.cpp
+1525406094 source:c:\users\msi\desktop\game\door and key.cpp
 	"header.h"
 
 1525342723 source:e:\data\c++project\game\button.cpp
@@ -1512,6 +1512,9 @@
 1525369937 source:e:\data\c++project\game\healthmanager.cpp
 	"header.h"
 
-1525370470 source:c:\users\msi\desktop\game\healthmanager.cpp
+1525401806 source:c:\users\msi\desktop\game\healthmanager.cpp
+	"header.h"
+
+1525405926 source:c:\users\msi\desktop\game\stage2.cpp
 	"header.h"
 

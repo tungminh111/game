@@ -8,6 +8,7 @@ int Key::keyNeeded;
 void Door::load(const int &stage){
     if (Key::keyGathered<Key::keyNeeded) return ;
     if (stage==1) Stage1::load();
+    if (stage==2) Stage2::load();
 };
 
 void Door::render(const int &x,const int &y){
@@ -29,6 +30,8 @@ void Door::free() {
 SDL_Rect Door::getRect(){ return display;};
 
 void Key::Gather() {
+    if (gathered) return;
+    gathered=true;
     ++keyGathered;
     mTexture.free();
 }
@@ -37,12 +40,20 @@ SDL_Rect Key::getRect(){ return display;}
 
 void Key::render(const int &x,const int &y){
     mTexture.render(x,y);
-    display.x=0;
-    display.y=y;
+    display.x=x;
+    display.y=-100;
+    display.h=y+mTexture.getHeight()+120;
 };
 
 void Key::loadTex(std::string c){
+    gathered=false;
     mTexture.loadTex(c.c_str());
     display.w=mTexture.getWidth();
-    display.h=SDLScreenHeight;
 };
+
+void Key::free() {
+    mTexture.free();
+}
+
+void Key::setKey(const int &keyNum) {keyNeeded=keyNum;};
+bool Key::enough(){ return keyGathered==keyNeeded;};

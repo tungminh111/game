@@ -13,10 +13,26 @@
 bool initSDL();
 bool loadMediaSDL(std::string c);
 void closeSDL();
+
+
+class Block;
+class Key;
+class LTexture;
+class LButton;
 class Enermy;
 class Hero;
-class Block;
+class Door;
+class HealthManager;
+class TimeManager;
+class BulletManager;
+class BulletControl;
+class Bullet;
+class menu;
+class stage1;
+
+
 bool collised(SDL_Rect rect1,SDL_Rect rect2);
+bool inside(SDL_Rect rect1,SDL_Rect rect2);
 enum LButtonSprite
 {
     BUTTON_SPRITE_MOUSE_OUT = 0,
@@ -80,6 +96,7 @@ public:
     static void scan(Block &block);
     static void reload();
     static void init();
+    static void scan(Hero &hero);
 private:
     static std::vector<Bullet> bulletList;
 
@@ -87,15 +104,20 @@ private:
 
 class Hero {
 public:
-    Hero();
+    void init();
     void loadTex(std::string c);
     void handleEvent(SDL_Event &e);
     void die();
     void operate(Block block[],const int &blockNumber);
+    bool scanK(Key& key);
+    void checkCollision(Bullet &bullet);
+    void checkCollision(Enermy &enermy);
+    bool scanD();
 private:
     int velX,velY;
     LTexture body[4];
     int hp;
+    bool died;
     int bullet;
     DIRECTION direction;
     SDL_Point pos;
@@ -108,11 +130,13 @@ private:
 
 class Enermy{
 public:
-    void setLoop(const int &posX,const int &posY,const int &_x1,const int &_x2,const int &_y);
+    void setLoop(const int &posX,const int &posY,const int &_x1,const int &_x2,const int &_y,const int &_hp);
     void die();
     void operate();
     void checkCollision(Bullet &bullet);
     void loadTex(std::string c);
+    SDL_Rect getRect();
+    bool isDead();
 private:
     int x1,x2,y,mWidth,mHeight;
     int currentMotion;
@@ -159,6 +183,7 @@ public:
     static void setData(const int &_time);
     static void updateData();
     static void displayTime();
+    static int getTime();
 private:
     static int baseTime;
     static int time;
@@ -190,15 +215,17 @@ private:
 
 class Key{
 public:
+    friend class Door;
     SDL_Rect getRect();
     void render(const int &x,const int &y);
     void loadTex(std::string c);
     void Gather();
-    friend class Door;
     static void setKey(const int& keyNum);
     void free();
+    static bool enough();
 private:
     SDL_Rect display;
+    bool gathered;
     LTexture mTexture;
     static int keyGathered;
     static int keyNeeded;
@@ -212,6 +239,23 @@ public:
 class Stage1{
 public:
     static void load();
+private:
+    static Hero minh;
+    static Enermy loc[3];
+    static Block block[9];
+    static Key key;
+    static SDL_Event e;
+};
+
+class Stage2{
+public:
+    static void load();
+private:
+    static Hero minh;
+    static Enermy loc[5];
+    static Block block[9];
+    static Key key[2];
+    static SDL_Event e;
 };
 
 class HealthManager {
@@ -219,6 +263,7 @@ public:
     static void setData(int _maxHealth);
     static void updateHealth(int change);
     static void displayHealth();
+    static int getHealth();
 private:
     static int health;
     static int maxHealth;
@@ -231,4 +276,7 @@ extern LTexture gTexture;
 extern int SDLScreenWidth;
 extern int SDLScreenHeight;
 extern int buttonNumber;
+extern LTexture giamHp;
+extern LTexture Wasted;
+extern int lastLevel;
 #endif

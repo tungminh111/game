@@ -8,6 +8,8 @@ void HealthManager::setData(int _maxHealth) {
     health = maxHealth;
 }
 
+int HealthManager::getHealth() {return health;}
+
 void HealthManager::updateHealth(int change) {
     health += change;
     if (health > maxHealth) health = maxHealth;
@@ -33,10 +35,10 @@ void HealthManager::displayHealth() {
     for (int i = 0; i < health; i++) {
         SDL_Rect dstRect1;
         dstRect1 = dstRect;
-        dstRect1.w = 160 / health;
+        dstRect1.w = 160 / maxHealth;
         dstRect1.h = 30;
         dstRect1.y += 4;
-        dstRect1.x += 8 + i * 160 / health;
+        dstRect1.x += 8 + i * 160 / maxHealth;
 
         gScreenSurface = IMG_Load("art/Health.png");
         SDL_Texture* health = SDL_CreateTextureFromSurface(gRenderer, gScreenSurface);

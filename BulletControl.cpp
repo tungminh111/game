@@ -22,13 +22,17 @@ void BulletControl::operate() {
 void BulletControl::reload() {
     std::vector<Bullet> tmp;
     For(i,0,(int)bulletList.size()-1) {
-        if (!bulletList[i].hit) tmp.push_back(bulletList[i]);//bulletList[i].Collision();
+        if (!bulletList[i].hit) tmp.push_back(bulletList[i]),bulletList[i].Collision();
     }
     bulletList=tmp;
 }
 
 void BulletControl::scan(Enermy &enermy) {
     For(i,0,(int)bulletList.size()-1) enermy.checkCollision(bulletList[i]);
+}
+
+void BulletControl::scan(Hero &hero) {
+    For(i,0,(int)bulletList.size()-1) hero.checkCollision(bulletList[i]);
 }
 
 void BulletControl::scan(Block &block) {

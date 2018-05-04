@@ -1,11 +1,5 @@
 #include "header.h"
 
-extern SDL_Window* gWindow;
-extern SDL_Surface* gScreenSurface;
-extern SDL_Renderer* gRenderer;
-extern LTexture gTexture;
-extern int SDLScreenWidth;
-extern int SDLScreenHeight;
 bool collised(SDL_Rect rect1,SDL_Rect rect2) {
     int x1=std::max(rect1.x,rect2.x);
     int x2=std::min(rect1.x+rect1.w-1,rect2.x+rect2.w-1);
@@ -15,6 +9,13 @@ bool collised(SDL_Rect rect1,SDL_Rect rect2) {
     return true;
 }
 
+bool inside(SDL_Rect rect1,SDL_Rect rect2) {
+    if (rect1.x<rect2.x) return false;
+    if (rect1.x+rect1.w-1>rect2.x+rect2.w-1) return false;
+    if (rect1.y<rect2.y) return false;
+    if (rect1.y+rect1.h-1>rect2.y+rect2.h-1) return false;
+    return true;
+}
 
 ///////////////////////////// HERO///////////////////////////////
 
@@ -40,6 +41,14 @@ bool loadMediaSDL(std::string c) {
     gTexture.free();
     if (!gTexture.loadTex(c)) {
         std::cout<<"Unable to load Texture Image: "<<c<<"\n";
+        success=false;
+    }
+    if (!giamHp.loadTex("art/-1.png")) {
+        std::cout<<"Unable to load Texture Image art/-1.png: "<<"\n";
+        success=false;
+    }
+    if (!Wasted.loadTex("art/wasted.png")) {
+        std::cout<<"Unable to load Texture Image art/wasted.png: "<<"\n";
         success=false;
     }
     return success;

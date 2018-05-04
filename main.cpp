@@ -6,6 +6,9 @@ SDL_Renderer* gRenderer=NULL;
 LTexture gTexture;
 int SDLScreenWidth=1000;
 int SDLScreenHeight=581;
+LTexture giamHp;
+LTexture Wasted;
+int lastLevel=0;
 
 int main(int argc, char* args[]) {
     bool quit=false;
@@ -14,14 +17,7 @@ int main(int argc, char* args[]) {
         std::cout<<"Failed to initialize!\n";
         return 0;
     } ;
-    /////////////////////////////////// start background////////////////////////////
-
     Menu::load();
-    /////////////////////////////////////// gameplay
-
-
-
-
 
     closeSDL();
     return 0;

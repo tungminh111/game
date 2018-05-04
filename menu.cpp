@@ -23,6 +23,13 @@ void Menu::load(){
                 Stage1::load();
                 return;
             }
+            if (button[CONTINUE].isActive()) {
+                switch (lastLevel) {
+                    case (1): Stage1::load();return;
+                    case (2): Stage2::load();return;
+                    default: break;
+                }
+            }
         }
         For(i,0,TOTAL_BUTTON-1) button[i].render();
         SDL_RenderPresent(gRenderer);

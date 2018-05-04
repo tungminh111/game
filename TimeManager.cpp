@@ -11,6 +11,8 @@ void TimeManager::setData(const int &_time) {
     gFont = TTF_OpenFont( "font/brush.ttf", 30 );
 }
 
+int TimeManager::getTime() {return time;}
+
 void TimeManager::updateData() {
     time = baseTime - SDL_GetTicks() / 1000;
 }
