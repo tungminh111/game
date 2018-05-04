@@ -50,6 +50,8 @@
 		<Unit filename="Enemy.cpp" />
 		<Unit filename="HealthManager.cpp" />
 		<Unit filename="LTexture.cpp" />
+		<Unit filename="Stage2.cpp" />
+		<Unit filename="Stage3.cpp" />
 		<Unit filename="TimeManager.cpp" />
 		<Unit filename="button.cpp" />
 		<Unit filename="declaration.cpp" />

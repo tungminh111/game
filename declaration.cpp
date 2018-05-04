@@ -17,12 +17,6 @@ bool inside(SDL_Rect rect1,SDL_Rect rect2) {
     return true;
 }
 
-///////////////////////////// HERO///////////////////////////////
-
-///////////////////////////////ENERMY////////////////////////////////////////
-
-///////////////////LTEXTURE///////////////////////////////////////
-
 bool initSDL(){
     SDL_Init(SDL_INIT_VIDEO<0);
     gWindow=SDL_CreateWindow("gunminh",SDL_WINDOWPOS_UNDEFINED,SDL_WINDOWPOS_UNDEFINED,
@@ -49,6 +43,10 @@ bool loadMediaSDL(std::string c) {
     }
     if (!Wasted.loadTex("art/wasted.png")) {
         std::cout<<"Unable to load Texture Image art/wasted.png: "<<"\n";
+        success=false;
+    }
+    if (!Win.loadTex("art/win.png")) {
+        std::cout<<"Unable to load Texture Image art/win.png: "<<"\n";
         success=false;
     }
     return success;

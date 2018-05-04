@@ -27,6 +27,7 @@ void Menu::load(){
                 switch (lastLevel) {
                     case (1): Stage1::load();return;
                     case (2): Stage2::load();return;
+                    case (3): Stage3::load();return;
                     default: break;
                 }
             }

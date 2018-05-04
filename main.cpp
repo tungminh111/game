@@ -9,10 +9,9 @@ int SDLScreenHeight=581;
 LTexture giamHp;
 LTexture Wasted;
 int lastLevel=0;
+LTexture Win;
 
 int main(int argc, char* args[]) {
-    bool quit=false;
-    SDL_Event e;
     if (!initSDL()) {
         std::cout<<"Failed to initialize!\n";
         return 0;

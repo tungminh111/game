@@ -8,11 +8,15 @@ SDL_Event Stage2::e;
 
 void Stage2::load() {
     lastLevel=std::max(lastLevel,2);
-    bool quit=false;
-    minh.init();
-    minh.loadTex("art/hero");
-    For(i,0,4) loc[i].loadTex("art/gunenermy");
     gTexture.loadTex("art/stage1.png");
+    Key::init();
+    BulletControl::init();
+    bool quit=false;
+    /////////////hero///////////////
+    minh.init(0,270);
+    minh.loadTex("art/hero");
+
+    ////////////setblock////////////
     block[0].loadTex("art/flyinglane.png");
     block[0].setBlock(330,346,249,54);
     block[1].loadTex("art/box.png");
@@ -31,14 +35,20 @@ void Stage2::load() {
     block[7].setBlock(624,231,373,101);
     block[8].loadTex("art/box.png");
     block[8].setBlock(207,402,85,86);
+
+
+    /////////setenermy/////////////////
+    For(i,0,4) loc[i].loadTex("art/gunenermy");
     loc[0].setLoop(840,143,820,955,140,3);
     loc[1].setLoop(360,255,300,460,255,5);
     loc[2].setLoop(600,450,600,800,450,5);
     loc[3].setLoop(264,-28,264,400,-28,5);
     loc[4].setLoop(310,404,310,410,404,20);
     Door::loadTex("art/door.png");
+
+    ////////display statistic////////////
     TimeManager::setData(60);
-    BulletManager::setData(10);
+    BulletManager::setData(20);
     HealthManager::setData(3);
     Key::setKey(2);
     key[0].loadTex("art/key.png");
@@ -56,8 +66,9 @@ void Stage2::load() {
         minh.operate(block,9);
         For(i,0,1) if (minh.scanK(key[i])) key[i].Gather();
         if (minh.scanD()) {
-            Menu::load();
-            if (Key::enough()) {
+            bool st=Key::enough();
+            Door::load(3);
+            if (st) {
             return;
             }
         }

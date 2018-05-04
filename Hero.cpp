@@ -1,7 +1,7 @@
 #include "header.h"
 
-void Hero::init() {
-    pos={0,270};
+void Hero::init(const int &x,const int &y) {
+    pos={x,y};
     direction=RIGHT;
     velX=0;
     velY=15;
