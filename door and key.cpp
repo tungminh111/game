@@ -55,6 +55,7 @@ void Key::loadTex(std::string c){
 void Key::free() {
     mTexture.free();
 }
+
 void Key::init() {keyGathered=0;};
 void Key::setKey(const int &keyNum) {keyNeeded=keyNum;};
 bool Key::enough(){ return keyGathered==keyNeeded;};

@@ -294,4 +294,5 @@ extern LTexture giamHp;
 extern LTexture Wasted;
 extern int lastLevel;
 extern LTexture Win;
+extern LTexture TutorialScreen;
 #endif

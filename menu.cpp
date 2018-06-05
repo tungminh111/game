@@ -31,7 +31,23 @@ void Menu::load(){
                     default: break;
                 }
             }
+            if (button[TUTORIAL].isActive()) {
+                SDL_Event x;
+                SDL_PollEvent(&x);
+                bool st=false;
+                while (!st) {
+                    while (SDL_PollEvent(&x)!=0) {
+                        if (x.type==SDL_MOUSEBUTTONDOWN) {st=true;break;}
+                    }
+                    SDL_RenderClear(gRenderer);
+                    TutorialScreen.render(0,0);
+                    SDL_RenderPresent(gRenderer);
+
+                }
+            }
         }
+        SDL_RenderClear(gRenderer);
+        gTexture.render(0,0);
         For(i,0,TOTAL_BUTTON-1) button[i].render();
         SDL_RenderPresent(gRenderer);
     }

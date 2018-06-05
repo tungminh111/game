@@ -10,6 +10,7 @@ LTexture giamHp;
 LTexture Wasted;
 int lastLevel=0;
 LTexture Win;
+LTexture TutorialScreen;
 
 int main(int argc, char* args[]) {
     if (!initSDL()) {

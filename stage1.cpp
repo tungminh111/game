@@ -90,7 +90,7 @@ void Stage1::load() {
         BulletControl::reload();
         Key::displayKey();
         SDL_RenderPresent(gRenderer);
-        SDL_Delay(25);
+        SDL_Delay(20);
     }
 
 }

@@ -49,6 +49,11 @@ bool loadMediaSDL(std::string c) {
         std::cout<<"Unable to load Texture Image art/win.png: "<<"\n";
         success=false;
     }
+    if (!TutorialScreen.loadTex("art/tutorialscreen.png")) {
+        std::cout<<"Unable to load Texture Image art/tutorialscreen.png: "<<"\n";
+        success=false;
+    }
+
     return success;
 }
 

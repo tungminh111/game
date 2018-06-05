@@ -16,7 +16,7 @@ void Stage3::load() {
     BulletControl::init();
     minh.loadTex("art/hero");
     TimeManager::setData(1000);
-    BulletManager::setData(1000);
+    BulletManager::setData(200);
     HealthManager::setData(25);
     For(i,0,49) loc[i].loadTex("art/gunenermy");
     block[0].setBlock(0,311,1000,100);

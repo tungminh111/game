@@ -4,7 +4,7 @@ void Hero::init(const int &x,const int &y) {
     pos={x,y};
     direction=RIGHT;
     velX=0;
-    velY=15;
+    velY=16;
     jump=jumping=false;
     ableHeight=120;
     currentMotion=0;
@@ -58,7 +58,7 @@ void Hero::operate(Block block[],const int &blockNumber) {
         int velXX=velX;
         For(i,0,blockNumber-1) {
             SDL_Rect rect1=block[i].getRect();
-            if (rect1.x>pos.x+canInjure[direction].x+canInjure[direction].w-1
+            if (        rect1.x>pos.x+canInjure[direction].x+canInjure[direction].w-1
             &&          std::max(rect1.y,pos.y+canInjure[direction].y)
                         <=std::min(rect1.y+rect1.h-1,pos.y+canInjure[direction].y+canInjure[direction].h-1)){
                 velXX=std::min(velXX,rect1.x-(pos.x+canInjure[direction].x+canInjure[direction].w-1)-1);
@@ -76,7 +76,7 @@ void Hero::operate(Block block[],const int &blockNumber) {
         int velXX=velX;
         For(i,0,blockNumber-1) {
             SDL_Rect rect1=block[i].getRect();
-            if (rect1.x+rect1.w-1<pos.x+canInjure[direction].x
+            if (        rect1.x+rect1.w-1<pos.x+canInjure[direction].x
             &&          std::max(rect1.y,pos.y+canInjure[direction].y)
                         <=std::min(rect1.y+rect1.h-1,pos.y+canInjure[direction].y+canInjure[direction].h-1)) {
                 velXX=std::max(velXX,-(pos.x+canInjure[direction].x)+(rect1.x+rect1.w-1)+1);
